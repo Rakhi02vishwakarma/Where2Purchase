@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
+import PasswordInput from '../components/PasswordInput';
 const SignUp = () => {
   const [userType, setUserType] = useState('Customer');
   const [activeTab, setActiveTab] = useState('register');
@@ -152,7 +153,7 @@ const SignUp = () => {
                 required
               />
 
-              <label>Password</label>
+              {/* <label>Password</label>
               <input
                 type="password"
                 name="password"
@@ -173,7 +174,26 @@ const SignUp = () => {
                 onChange={handleChange}
                 placeholder="Re-enter your password"
                 required
-              />
+              /> */}
+
+              <label>Password</label>
+<PasswordInput
+  name="password"
+  value={formData.password}
+  onChange={handleChange}
+  placeholder="Create a strong password"
+/>
+<small>
+  Must be at least 8 characters with a mix of letters, numbers, and symbols.
+</small>
+
+<label>Confirm Password</label>
+<PasswordInput
+  name="confirmPassword"
+  value={formData.confirmPassword}
+  onChange={handleChange}
+  placeholder="Re-enter your password"
+/>
 
               <button className="continue-btn" type="submit">
                 Continue →

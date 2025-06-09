@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './ShopKeeper_Signup.css';
+import PasswordInput from '../components/PasswordInput';
 
 const ShopKeeper_SignUp = () => {
   const [activeTab, setActiveTab] = useState('register');
@@ -152,12 +153,32 @@ const ShopKeeper_SignUp = () => {
             <label>Email Address</label>
             <input type="email" name="email" required value={form1.email} onChange={handleChange1} placeholder="Enter your email" />
 
-            <label>Password</label>
+            {/* <label>Password</label>
             <input type="password" name="password" required value={form1.password} onChange={handleChange1} placeholder="Create a strong password" />
             <small>Must be at least 8 characters with a mix of letters, numbers, and symbols.</small>
 
             <label>Confirm Password</label>
-            <input type="password" name="confirmPassword" required value={form1.confirmPassword} onChange={handleChange1} placeholder="Re-enter your password" />
+            <input type="password" name="confirmPassword" required value={form1.confirmPassword} onChange={handleChange1} placeholder="Re-enter your password" /> */}
+
+            <label>Password</label>
+<PasswordInput
+  name="password"
+  value={form1.password}
+  onChange={handleChange1}
+  placeholder="Create a strong password"
+/>
+<small>
+  Must be at least 8 characters with a mix of letters, numbers, and symbols.
+</small>
+
+<label>Confirm Password</label>
+<PasswordInput
+  name="confirmPassword"
+  value={form1.confirmPassword}
+  onChange={handleChange1}
+  placeholder="Re-enter your password"
+/>
+
 
             <button className="continue-btn" type="submit">Continue →</button>
             <p className="login-link">Already have an account? <a href="/login">Log In</a></p>

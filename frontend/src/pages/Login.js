@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
-
+import PasswordInput from '../components/PasswordInput';
 const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -63,7 +63,7 @@ const Login = ({ setIsLoggedIn }) => {
             required
           />
 
-          <label className="label-row">
+          {/* <label className="label-row">
             <span>Password</span>
           </label>
           <input
@@ -72,7 +72,14 @@ const Login = ({ setIsLoggedIn }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
+          /> */}
+
+          <PasswordInput
+  name="password"
+  value={password}
+  onChange={(e)=>setPassword(e.target.value)}
+  placeholder="Enter your Password"
+/>
 
           <label>Account Type</label>
           <select value={accountType} onChange={(e) => setAccountType(e.target.value)}>
